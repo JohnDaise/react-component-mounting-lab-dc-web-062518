@@ -11,10 +11,6 @@ class Timer extends Component {
 
 
 
-
-
-
-
   render() {
 
     const { time, color, className } = this.state
@@ -29,6 +25,16 @@ class Timer extends Component {
       </section>
     );
   }
+
+
+  componentDidMount(){
+    this.interval = setInterval(this.clockTick, 1000)
+  };
+
+  componentWillUnmount(){
+    this.stopClock();
+  };
+
 
   //clock functions
   clockTick = () => {
